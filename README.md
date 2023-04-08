@@ -1,5 +1,5 @@
 # team-1-4-14
 
-An e-commerce website with customer and vendor views.
+A song recommender system.
 
 Website URL: https://fseteam14.ue.r.appspot.com/home
