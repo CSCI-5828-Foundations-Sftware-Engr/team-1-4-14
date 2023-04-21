@@ -1,0 +1,24 @@
+<div class="card">
+    <div class="title">Most Popular Songs</div>
+    <p-table 
+    [value]="songs"
+    [rows]="5"
+    [showCurrentPageReport]="true"
+    [tableStyle]="{ 'min-width': '50rem' }"
+    >
+        <ng-template pTemplate="header" let-columns>
+            <tr>
+                <th>Name </th>
+                <th>Artist</th>
+                <th>Genre</th>
+            </tr>
+        </ng-template>
+        <ng-template pTemplate="body" let-product let-columns="columns">
+            <tr>
+                <td>{{product.name}}</td>
+                <td>{{product.artist}}</td>
+                <td><p-tag [value]="product.genre" [severity]="getSeverity(product.genre)"></p-tag></td>
+            </tr>
+        </ng-template>
+    </p-table>
+</div>
