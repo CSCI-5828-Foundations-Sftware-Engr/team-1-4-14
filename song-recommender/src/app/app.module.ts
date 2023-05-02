@@ -8,6 +8,9 @@ import { TableModule } from 'primeng/table';
 import { TagModule } from 'primeng/tag';
 import { SongService } from 'src/services/SongService';
 import { MostPopularComponent } from './most-popular/most-popular.component';
+import { HttpClientModule } from '@angular/common/http';
+import { ApiService } from 'src/services/ApiService';
+import { ApiConfigService } from 'src/services/ApiConfigService';
 
 
 @NgModule({
@@ -18,12 +21,13 @@ import { MostPopularComponent } from './most-popular/most-popular.component';
   ],
   imports: [
     BrowserModule,
+    HttpClientModule,
     AppRoutingModule,
     BrowserAnimationsModule,
     TableModule,
     TagModule
   ],
-  providers: [SongService],
+  providers: [SongService, ApiService, ApiConfigService],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
