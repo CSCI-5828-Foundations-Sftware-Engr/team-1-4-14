@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { Song } from '../../interfaces/Song';
 import { SongService } from '../../services/SongService';
+import { Observable } from 'rxjs';
 
 
 @Component({
@@ -9,17 +10,14 @@ import { SongService } from '../../services/SongService';
   styleUrls: ['./songs-grid.component.scss']
 })
 export class SongsGridComponent implements OnInit{
-
-    songs: Song[] = [];
+    songs$!: Observable<any>;
 
     cols: any[] = [];
 
     constructor(private songService: SongService) {}
 
     ngOnInit() {
-        this.songService.getSongs().then((data) => {
-            this.songs = data;
-        });
+        this.songs$ = this.songService.getSongs();
     }
 
     getSeverity(status: string) {

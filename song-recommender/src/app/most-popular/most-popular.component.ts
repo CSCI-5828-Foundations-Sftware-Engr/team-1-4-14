@@ -1,4 +1,5 @@
 import { Component } from '@angular/core';
+import { Observable } from 'rxjs';
 import { Song } from 'src/interfaces/Song';
 import { SongService } from 'src/services/SongService';
 
@@ -8,16 +9,13 @@ import { SongService } from 'src/services/SongService';
   styleUrls: ['./most-popular.component.scss']
 })
 export class MostPopularComponent {
-  songs: Song[] = [];
+  popularSongs$!: Observable<any>;
 
-  cols: any[] = [];
 
   constructor(private songService: SongService) {}
 
   ngOnInit() {
-      this.songService.getPopularSongs().then((data) => {
-          this.songs = data;
-      });
+    this.popularSongs$ = this.songService.getPopularSongs();
   }
 
   getSeverity(status: string) {
