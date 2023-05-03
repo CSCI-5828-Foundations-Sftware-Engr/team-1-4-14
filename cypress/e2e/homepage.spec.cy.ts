@@ -13,6 +13,7 @@ describe('homepage', () => {
 
   
   it('contains a grid with pagination containing page sizes of 10, 25, 50', () => {
+    cy.scrollTo('bottom');
     cy.get('.homepage-grid').find('p-dropdown').click();
     cy.get('.p-dropdown-items').should('contain', 10).and('contain', 25).and('contain', 50);
   });
