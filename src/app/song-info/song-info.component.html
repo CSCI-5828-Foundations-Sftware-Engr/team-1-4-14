@@ -1,0 +1,93 @@
+<ng-container *ngIf="{
+    songData: songInfo$ | async,
+    songURL: songURL$ | async,
+    albumURL: albumURL$ | async,
+    trendsMap: trendsMap$ | async,
+    trendsTime: trendsTime$ | async
+} as observables;">
+    <div class="song-info-container">
+        <h1>{{observables?.songData?.spotifyData?.trackName}}</h1>
+        <!-- <h2>{{observables?.songData?.spotifyData?.albumName}}</h2> -->
+        <h2>Artist : {{observables?.songData?.spotifyData?.artistName}}</h2>
+        <div class="card">
+            <p-tabView>
+                <p-tabPanel header="Listen">
+                    <iframe 
+                    style="border-radius:12px" 
+                    [src]="observables?.songURL | safe"
+                    width="30%" 
+                    height="352" 
+                    frameBorder="0" 
+                    allowfullscreen="" 
+                    allow="autoplay; clipboard-write; encrypted-media; fullscreen; picture-in-picture" 
+                    loading="lazy"
+                ></iframe>
+                </p-tabPanel>
+                <p-tabPanel header="Album">
+                    <iframe
+                    style="border-radius:12px"
+                    [src]="observables?.albumURL | safe"
+                    width="50%"
+                    height="652"
+                    frameBorder="0"
+                    allowfullscreen=""
+                    allow="autoplay; clipboard-write; encrypted-media; fullscreen; picture-in-picture"
+                    loading="lazy"
+                ></iframe>  
+                </p-tabPanel>
+                <p-tabPanel header="More Like This">
+                    <div class="card suggestion-grid">
+                        <p-table 
+                        [value]="observables?.songData?.songsByArtist"
+                        [paginator]="true"
+                        [rows]="5"
+                        [showCurrentPageReport]="true"
+                        [tableStyle]="{ 'min-width': '50rem'}"
+                        currentPageReportTemplate="Showing {first} to {last} of {totalRecords} entries"
+                        selectionMode="single"
+                        dataKey="trackId"
+                        (onRowSelect)="showSongInfo($event)"
+                        >
+                            <ng-template pTemplate="header" let-columns>
+                                <tr>
+                                    <th>Name </th>
+                                    <th>Artist</th>
+                                    <th>Year</th>
+                                </tr>
+                            </ng-template>
+                            <ng-template pTemplate="body" let-song let-columns="columns">
+                                <tr class="song-record" [pSelectableRow]="song">
+                                    <td>{{song.title}}</td>
+                                    <td>{{song.artistName}}</td>
+                                    <td>{{song.year ? song.year : getYear() }}</td>
+                                </tr>
+                            </ng-template>
+                        </p-table>
+                    </div>
+                </p-tabPanel>
+                <p-tabPanel header="Trends">
+                    <div class="trends-container">
+                        <iframe
+                            id="trends-widget"
+                            [src]="observables?.trendsMap | safe"
+                            width="48%"
+                            height="420px"
+                            frameborder="0"
+                            scrolling="0"
+                            class="trends-widget"
+                        ></iframe>
+                        <iframe
+                            id="trends-widget-2"
+                            [src]="observables?.trendsTime | safe"
+                            width="48%"
+                            height="420px"
+                            frameborder="0"
+                            scrolling="0"
+                            class="trends-widget"
+                        ></iframe>
+                    </div>
+                </p-tabPanel>
+            </p-tabView>
+        </div>      
+    </div>
+</ng-container>

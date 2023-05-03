@@ -12,8 +12,16 @@ export class SongService {
         return this.apiService.get(this.apiConfigService.apiUrl + 'api/v1/songs');
     }
 
+    getSongInfo(trackId: string) {
+        return this.apiService.get(this.apiConfigService.apiUrl + 'api/v1/songs/' + trackId);
+    }
+
     getPopularSongs() {
         return this.apiService.get(this.apiConfigService.apiUrl + 'api/v1/spotify/songs')
+    }
+
+    getSongYear() {
+        return Math.floor(Math.random()*20) + 1995;
     }
 
 };

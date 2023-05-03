@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { Song } from '../../interfaces/Song';
 import { SongService } from '../../services/SongService';
 import { Observable } from 'rxjs';
+import { Router } from '@angular/router';
 
 
 @Component({
@@ -14,10 +15,18 @@ export class SongsGridComponent implements OnInit{
 
     cols: any[] = [];
 
-    constructor(private songService: SongService) {}
+    constructor(private songService: SongService, private router: Router) {}
 
     ngOnInit() {
         this.songs$ = this.songService.getSongs();
+    }
+
+    showSongInfo(event: any) {
+        this.router.navigate(['/song', event.data.trackId]);
+    }
+ 
+    getYear() {
+        return this.songService.getSongYear();
     }
 
     getSeverity(status: string) {

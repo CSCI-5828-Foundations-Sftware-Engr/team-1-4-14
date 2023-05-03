@@ -10,6 +10,9 @@
         [tableStyle]="{ 'min-width': '50rem' }"
         currentPageReportTemplate="Showing {first} to {last} of {totalRecords} entries"
         [rowsPerPageOptions]="[10, 25, 50]"
+        selectionMode="single"
+        dataKey="trackId"
+        (onRowSelect)="showSongInfo($event)"
         >
             <ng-template pTemplate="header" let-columns>
                 <tr>
@@ -19,10 +22,10 @@
                 </tr>
             </ng-template>
             <ng-template pTemplate="body" let-song let-columns="columns">
-                <tr>
+                <tr class="song-record" [pSelectableRow]="song">
                     <td>{{song.title}}</td>
                     <td>{{song.artistName}}</td>
-                    <td>{{song.year ? song.year : 1997 }}</td>
+                    <td>{{song.year ? song.year : getYear() }}</td>
                     <!-- <td><p-tag [value]="song.genre" [severity]="getSeverity(song.genre)"></p-tag></td> -->
                 </tr>
             </ng-template>
