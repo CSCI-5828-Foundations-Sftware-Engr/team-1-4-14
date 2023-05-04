@@ -8,7 +8,7 @@ import { PopularSongsComponent } from './popular-songs/popular-songs.component';
 const routes: Routes = [
     { path: '', component: SongsGridComponent },
     { path: 'most-popular', component: MostPopularComponent },
-    { path: 'popular', component: PopularSongsComponent },
+    { path: 'trends', component: PopularSongsComponent },
     { path: 'song/:id', component: SongInfoComponent }
 ];
 

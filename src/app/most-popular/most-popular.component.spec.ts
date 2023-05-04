@@ -1,14 +1,19 @@
 import { ComponentFixture, TestBed } from '@angular/core/testing';
 
 import { MostPopularComponent } from './most-popular.component';
+import { SongService } from 'src/services/SongService';
+import { TableModule } from 'primeng/table';
 
 describe('MostPopularComponent', () => {
   let component: MostPopularComponent;
   let fixture: ComponentFixture<MostPopularComponent>;
+  const songServiceStub = {getPopularSongs: () => {}};
 
   beforeEach(async () => {
     await TestBed.configureTestingModule({
-      declarations: [ MostPopularComponent ]
+      imports: [TableModule],
+      declarations: [ MostPopularComponent ],
+      providers: [ { provide: SongService, useValue: songServiceStub } ]
     })
     .compileComponents();
 
