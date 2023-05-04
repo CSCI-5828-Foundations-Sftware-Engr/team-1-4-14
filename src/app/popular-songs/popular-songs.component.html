@@ -1,0 +1,13 @@
+<ng-container *ngIf="{
+    songsData: songsData$ | async,
+    artistsData: artistsData$ | async,
+} as observables;">
+    <div class="graph-container">
+        <div class="card ind-graph">
+            <p-chart type="bar" height="600px" width="700px" [data]="observables?.songsData" [options]="basicOptions"></p-chart>
+        </div>
+        <div class="card ind-graph">
+            <p-chart type="bar" height="580px" width="700px"  [data]="observables?.artistsData" [options]="basicOptions"></p-chart>
+        </div>
+    </div>
+</ng-container>
