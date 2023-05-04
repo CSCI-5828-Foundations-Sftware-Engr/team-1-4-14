@@ -18,7 +18,7 @@ jobs:
           install-command: npm install --legacy-peer-deps
           start: npm start
           record: true
-          command: npx cypress run --config-file cypress-acceptance-prod.config.ts
+          command: npx cypress run --record --key d1d7de89-cdae-433d-8ad2-b452b64500e5 --config-file cypress-acceptance-prod.config.ts
         env:
           CYPRESS_RECORD_KEY: ${{ secrets.CYPRESS_RECORD_KEY }}
           GITHUB_TOKEN: ${{ secrets.ACCESS_TOKEN }}
@@ -28,7 +28,7 @@ jobs:
           install-command: npm install --legacy-peer-deps
           start: npm start
           record: true
-          command: npx cypress run --config-file cypress-integration-prod.config.ts
+          command: npx cypress run --record --key d1d7de89-cdae-433d-8ad2-b452b64500e5 --config-file cypress-integration-prod.config.ts
         env:
           CYPRESS_RECORD_KEY: ${{ secrets.CYPRESS_RECORD_KEY }}
           GITHUB_TOKEN: ${{ secrets.ACCESS_TOKEN }}
