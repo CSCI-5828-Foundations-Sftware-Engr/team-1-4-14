@@ -5,9 +5,9 @@
     trendsMap: trendsMap$ | async,
     trendsTime: trendsTime$ | async
 } as observables;">
+    <div *ngIf="observables?.songData?.spotifyData?.trackName; else loading">
     <div class="song-info-container">
         <h1>{{observables?.songData?.spotifyData?.trackName}}</h1>
-        <!-- <h2>{{observables?.songData?.spotifyData?.albumName}}</h2> -->
         <h2>Artist : {{observables?.songData?.spotifyData?.artistName}}</h2>
         <div class="card">
             <p-tabView>
@@ -90,4 +90,10 @@
             </p-tabView>
         </div>      
     </div>
+    </div>
+    <ng-template #loading>
+        <div class="loading-circle">
+            <p-progressSpinner></p-progressSpinner>            
+        </div>
+    </ng-template>
 </ng-container>

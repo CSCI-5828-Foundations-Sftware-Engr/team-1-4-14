@@ -17,6 +17,7 @@ import { SongInfoComponent } from './song-info/song-info.component';
 import { SafePipe } from 'src/pipes/SafePipe';
 import { PopularSongsComponent } from './popular-songs/popular-songs.component';
 import { ChartModule } from 'primeng/chart';
+import { ProgressSpinnerModule } from 'primeng/progressspinner';
 
 @NgModule({
   declarations: [
@@ -34,6 +35,7 @@ import { ChartModule } from 'primeng/chart';
     ButtonModule,
     BrowserAnimationsModule,
     ChartModule,
+    ProgressSpinnerModule,
     TableModule,
     TagModule,
     TabViewModule

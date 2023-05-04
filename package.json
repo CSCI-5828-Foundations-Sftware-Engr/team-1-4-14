@@ -7,10 +7,10 @@
     "build": "ng build",
     "watch": "ng build --watch --configuration development",
     "test": "ng test",
-    "cypress:integration:dev": "npx cypress run --record --key d1d7de89-cdae-433d-8ad2-b452b64500e5 --config-file cypress-integration-dev.config.ts --headed",
-    "cypress:acceptance:dev": "npx cypress run --record --key d1d7de89-cdae-433d-8ad2-b452b64500e5 --config-file cypress-acceptance-dev.config.ts --headed",
-    "cypress:integration:prod": "npx cypress run --record --key d1d7de89-cdae-433d-8ad2-b452b64500e5 --config-file cypress-integration-prod.config.ts",
-    "cypress:acceptance:prod": "npx cypress run --record --key d1d7de89-cdae-433d-8ad2-b452b64500e5 --config-file cypress-acceptance-prod.config.ts"
+    "cypress:integration:dev": "npx cypress run --record --key d1d7de89-cdae-433d-8ad2-b452b64500e5 --config-file cypress-integration.config.ts --headed",
+    "cypress:acceptance:dev": "npx cypress run --record --key d1d7de89-cdae-433d-8ad2-b452b64500e5 --config-file cypress-acceptance.config.ts --headed",
+    "cypress:integration:prod": "npx cypress run --record --key d1d7de89-cdae-433d-8ad2-b452b64500e5 --config-file cypress-integration.config.ts",
+    "cypress:acceptance:prod": "npx cypress run --record --key d1d7de89-cdae-433d-8ad2-b452b64500e5 --config-file cypress-acceptance.config.ts"
   },
   "private": true,
   "dependencies": {
