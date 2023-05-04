@@ -1,3 +1,10 @@
 .song-record {
     cursor: pointer;
 }
+
+.loading-circle {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 500px;
+}
