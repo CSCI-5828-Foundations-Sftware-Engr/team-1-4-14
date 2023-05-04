@@ -1,7 +1,7 @@
 describe('homepage', () => {
     beforeEach(() => {
       cy.visit('/');
-      cy.request({method: 'GET', url: 'https://application-dxrojpab4a-wl.a.run.app/api/v1/songs'}).as('songs');
+      cy.request({method: 'GET', url: 'https://application-dxrojpab4a-wl.a.run.app/api/v1/songs?size=5000'}).as('songs');
     });
   
     it('should verify get songs api is successful', () => {

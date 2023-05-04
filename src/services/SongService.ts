@@ -9,7 +9,7 @@ export class SongService {
     constructor(private apiService: ApiService, private apiConfigService: ApiConfigService) { }
 
     getSongs() {
-        return this.apiService.get(this.apiConfigService.apiUrl + 'api/v1/songs');
+        return this.apiService.get(this.apiConfigService.apiUrl + 'api/v1/songs?size=5000');
     }
 
     getSongInfo(trackId: string) {

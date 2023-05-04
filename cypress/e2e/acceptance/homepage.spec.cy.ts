@@ -22,4 +22,9 @@ describe('homepage', () => {
     cy.get('[data-cy="popular-songs"]').click();
     cy.url().should('contain', '/most-popular');
   })
+
+  it('should redirect to trends', () => {
+    cy.get('[data-cy="trends-button"]').click();
+    cy.url().should('contain', '/trends');
+  })
 })

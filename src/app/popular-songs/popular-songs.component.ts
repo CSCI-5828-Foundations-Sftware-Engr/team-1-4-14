@@ -30,8 +30,8 @@ export class PopularSongsComponent {
             popularArtistsLabels.push(popularArtists[i].artistName);
             popularArtistsCounts.push(popularArtists[i].artistViews);
           }
-          this.songsData$.next(this.getGraphData(popularSongLabels, popularSongCounts, 'Popular Songs'));
-          this.artistsData$.next(this.getGraphData(popularArtistsLabels, popularArtistsCounts, 'Popular Artists'));
+          this.songsData$.next(this.getGraphData(popularSongLabels, popularSongCounts, 'Most Viewed Songs'));
+          this.artistsData$.next(this.getGraphData(popularArtistsLabels, popularArtistsCounts, 'Most Viewed Artists'));
         })
 
         
