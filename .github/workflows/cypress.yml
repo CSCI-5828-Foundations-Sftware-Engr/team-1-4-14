@@ -1,0 +1,34 @@
+name: Cypress Tests
+on: [push]
+jobs:
+  cypress-run:
+    runs-on: ubuntu-latest
+    strategy:
+      fail-fast: false
+      matrix:
+        containers: [1]
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v3
+        with:
+          node-version: 16
+      - name: Acceptance tests run
+        uses: cypress-io/github-action@v4
+        with:
+          install-command: npm install --legacy-peer-deps
+          start: npm start
+          record: true
+          command: npx cypress run --record --key d1d7de89-cdae-433d-8ad2-b452b64500e5 --config-file cypress-acceptance-prod.config.ts
+        env:
+          CYPRESS_RECORD_KEY: ${{ secrets.CYPRESS_RECORD_KEY }}
+          GITHUB_TOKEN: ${{ secrets.ACCESS_TOKEN }}
+      - name: Integration tests run
+        uses: cypress-io/github-action@v4
+        with:
+          install-command: npm install --legacy-peer-deps
+          start: npm start
+          record: true
+          command: npx cypress run --record --key d1d7de89-cdae-433d-8ad2-b452b64500e5 --config-file cypress-integration-prod.config.ts
+        env:
+          CYPRESS_RECORD_KEY: ${{ secrets.CYPRESS_RECORD_KEY }}
+          GITHUB_TOKEN: ${{ secrets.ACCESS_TOKEN }}
