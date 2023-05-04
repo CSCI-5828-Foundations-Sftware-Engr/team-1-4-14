@@ -20,6 +20,14 @@ export class SongService {
         return this.apiService.get(this.apiConfigService.apiUrl + 'api/v1/spotify/songs')
     }
 
+    getPopularSongsByViews() {
+        return this.apiService.get(this.apiConfigService.apiUrl + 'api/v1/popular/songs')
+    }
+
+    getPopularSongsByArtists() {
+        return this.apiService.get(this.apiConfigService.apiUrl + 'api/v1/popular/artists')
+    }
+
     getSongYear() {
         return Math.floor(Math.random()*20) + 1995;
     }
