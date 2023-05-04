@@ -4,7 +4,7 @@ describe('homepage', () => {
   });
 
   it('conatains a popular songs button', () => {
-    cy.contains("Today's Top 50");
+    cy.contains("Top 50");
   });
 
   it('contains a grid with pagination with default 10', () => {

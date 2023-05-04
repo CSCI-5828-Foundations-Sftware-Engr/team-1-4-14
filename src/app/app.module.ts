@@ -15,7 +15,8 @@ import { ApiService } from 'src/services/ApiService';
 import { ApiConfigService } from 'src/services/ApiConfigService';
 import { SongInfoComponent } from './song-info/song-info.component';
 import { SafePipe } from 'src/pipes/SafePipe';
-
+import { PopularSongsComponent } from './popular-songs/popular-songs.component';
+import { ChartModule } from 'primeng/chart';
 
 @NgModule({
   declarations: [
@@ -23,7 +24,8 @@ import { SafePipe } from 'src/pipes/SafePipe';
     SongsGridComponent,
     MostPopularComponent,
     SongInfoComponent,
-    SafePipe
+    SafePipe,
+    PopularSongsComponent
   ],
   imports: [
     BrowserModule,
@@ -31,6 +33,7 @@ import { SafePipe } from 'src/pipes/SafePipe';
     AppRoutingModule,
     ButtonModule,
     BrowserAnimationsModule,
+    ChartModule,
     TableModule,
     TagModule,
     TabViewModule
